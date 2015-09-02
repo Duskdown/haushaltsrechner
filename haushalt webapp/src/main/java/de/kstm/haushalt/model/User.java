@@ -2,23 +2,26 @@ package de.kstm.haushalt.model;
 
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+@Entity(name="USERS")
 public class User {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String name;
-    private double income;
-    
     @OneToMany
-    private List<FixedExpense> expenses;
+    private List<FixedExpense> defaultExpenses;
+	
+    private String name;
+    private double defaultIncome;
+    //private Month month;
     
-	public User() {
+  	public User() {
     }
 
     public void setId(long id) {
@@ -37,11 +40,19 @@ public class User {
         this.name = name;
     }
     
-    public double getIncome() {
-		return income;
+    public double getDefaultIncome() {
+		return defaultIncome;
 	}
 
-	public void setIncome(double income) {
-		this.income = income;
+	public void setDefaultIncome(double income) {
+		this.defaultIncome = income;
+	}
+	
+	public List<FixedExpense> getDefaultExpenses() {
+		return defaultExpenses;
+	}
+	
+	public void setDefaultExpenses(List<FixedExpense> defaultExpenses) {
+		this.defaultExpenses = defaultExpenses;
 	}
 }

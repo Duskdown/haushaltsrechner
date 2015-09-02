@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<USERS id="1" name="Bob" default_income="2015.00" />
+	<USERS id="2" name="Alice" default_income="2015.00" />
+	
+	<USER_MONTHS id="1" user_id="1" year="2015" month="1" actual_income="2015.01" />
+	<USER_MONTHS id="2" user_id="1" year="2015" month="2" actual_income="2015.02" />
+	<USER_MONTHS id="3" user_id="1" year="2015" month="3" actual_income="2015.03" />
+	<USER_MONTHS id="4" user_id="1" year="2016" month="9" actual_income="2016.09" />
+	<USER_MONTHS id="5" user_id="1" year="2016" month="10" actual_income="2016.10" />
+	
+	<USER_MONTHS id="6" user_id="2" year="2015" month="1" actual_income="2015.01" />
+	<USER_MONTHS id="7" user_id="2" year="2015" month="10" actual_income="2015.10" />
+	<USER_MONTHS id="8" user_id="2" year="2016" month="11" actual_income="2016.11" />
+	<USER_MONTHS id="9" user_id="2" year="2016" month="12" actual_income="2016.12" />
+	
+</dataset>

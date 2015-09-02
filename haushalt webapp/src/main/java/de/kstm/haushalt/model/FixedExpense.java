@@ -1,9 +1,11 @@
 package de.kstm.haushalt.model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity(name="FIXED_EXPENSES")
 public class FixedExpense {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)

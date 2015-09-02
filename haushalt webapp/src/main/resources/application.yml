@@ -1,19 +1,22 @@
 spring.datasource:
-  driverCLassName: org.h2.Driver
-  url: jdbc:h2:file:C:/dummy
-  username: admin
+  driverCLassName: com.mysql.jdbc.Driver
+  url: jdbc:h2:mem:haushalt_mem
+  username: sa
   password: 
 
 spring.jpa.hibernate:
   dialect: org.hibernate.dialect.MySQLInnoDBDialect
-  ddl-auto: update
+  ddl-auto: create-drop
+--- 
 
----
-
-spring.profiles: integration-test
+spring.profiles: prod
 
 spring.datasource:
-  driverCLassName: com.mysql.jdbc.Driver
-  url: jdbc:h2:mem:haushalt_mem
-  username: 
+  driverCLassName: org.h2.Driver
+  url: jdbc:h2:file:~/h2/haushalt_file
+  username: sa
   password: 
+  
+spring.jpa.hibernate:
+  dialect: org.hibernate.dialect.MySQLInnoDBDialect
+  ddl-auto: validate
