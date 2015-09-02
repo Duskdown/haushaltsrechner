@@ -33,7 +33,6 @@ public class UserController {
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<User> add(@RequestBody User person) {
 		User newUser = userRepository.save(person);
-
 		HttpHeaders httpHeaders = ControllerHelper.buildHttpHeaderForNewResource("{id}", newUser.getId());
 
 		return new ResponseEntity<User>(newUser, httpHeaders,
