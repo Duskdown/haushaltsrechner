@@ -20,7 +20,7 @@ import com.github.springtestdbunit.annotation.DatabaseTearDown;
 import com.github.springtestdbunit.annotation.DatabaseOperation;
 
 import de.kstm.haushalt.Application;
-import de.kstm.haushalt.model.UserMonth;
+import de.kstm.haushalt.model.PayerMonthlyEarning;
 
 @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class,
 		DirtiesContextTestExecutionListener.class,
@@ -28,37 +28,36 @@ import de.kstm.haushalt.model.UserMonth;
 		DbUnitTestExecutionListener.class })
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
-@DatabaseSetup(UserMonthRepositoryIT.DATASET)
-@DatabaseTearDown(type = DatabaseOperation.DELETE_ALL, value = { UserMonthRepositoryIT.DATASET })
+@DatabaseSetup(PayerMonthlyEarningRepositoryIT.DATASET)
+@DatabaseTearDown(type = DatabaseOperation.DELETE_ALL, value = { PayerMonthlyEarningRepositoryIT.DATASET })
 @DirtiesContext
-public class UserMonthRepositoryIT {
+public class PayerMonthlyEarningRepositoryIT {
 	protected static final String DATASET = "classpath:datasets/UserMonthRepositoryIT-dataset.xml";
 
 	@Autowired
-	UserMonthRepository userMonthRepository;
+	PayerMonthlyEarningRepository userMonthRepository;
 
 	@Test
 	public void findAllUserMonthsForSpecificMonth() {
 		// act
-		List<UserMonth> result = userMonthRepository.findAllByYearAndMonth(2015, 1);
+		List<PayerMonthlyEarning> result = userMonthRepository.findAllByYearAndMonthAndUserId(2015, 1, 1);
 		
 		// assert
-		Assert.assertEquals(2, result.size());
+		Assert.assertEquals(3, result.size());
 		Assert.assertEquals(1, result.get(0).getId());
-		Assert.assertEquals(6, result.get(1).getId());
+		Assert.assertEquals(2, result.get(1).getId());
+		Assert.assertEquals(3, result.get(2).getId());
 	}
 	
 
 	@Test
 	public void findAllUserMonthsForSpecificYear() {
 		// act
-		List<UserMonth> result = userMonthRepository.findAllByYear(2016);
+		List<PayerMonthlyEarning> result = userMonthRepository.findAllByYearAndUserId(2016, 2);
 		
 		// assert
-		Assert.assertEquals(4, result.size());
-		Assert.assertEquals(4, result.get(0).getId());
-		Assert.assertEquals(5, result.get(1).getId());
-		Assert.assertEquals(8, result.get(2).getId());
-		Assert.assertEquals(9, result.get(3).getId());
+		Assert.assertEquals(2, result.size());
+		Assert.assertEquals(8, result.get(0).getId());
+		Assert.assertEquals(9, result.get(1).getId());
 	}
 }

@@ -17,10 +17,10 @@ public class Bill {
     private long id;
 
 	@ManyToOne
-	private User payingUser;
+	private Payer payingUser;
 
 	@OneToMany
-	private List<BillProduct> products;
+	private List<ConcreteProduct> products;
 	
 	//TODO: Check type of date
 	private Date billDate;
@@ -42,11 +42,11 @@ public class Bill {
 		this.totalPrice = totalPrice;
 	}
 	
-	public List<BillProduct> getBillProducts() {
+	public List<ConcreteProduct> getBillProducts() {
 		return this.products;
 	}
 	
-	public void setBillProducts(List<BillProduct> products) {
+	public void setBillProducts(List<ConcreteProduct> products) {
 		this.products = products;
 	}
 }

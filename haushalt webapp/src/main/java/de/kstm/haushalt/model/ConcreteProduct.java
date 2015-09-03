@@ -6,10 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-//TODO Refactor name of class
-
-@Entity(name="BILL_PRODUCTS")
-public class BillProduct {
+@Entity(name="CONCERETE_PRODUCTS")
+public class ConcreteProduct {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -18,7 +16,7 @@ public class BillProduct {
 	private Product product;
 	private double concretePrice;
 	
-	public BillProduct() {
+	public ConcreteProduct() {
 	}
 	
 	public long getId() {

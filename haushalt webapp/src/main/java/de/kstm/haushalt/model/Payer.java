@@ -8,8 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-@Entity(name="USERS")
-public class User {
+@Entity(name="PAYERS")
+public class Payer {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -21,7 +21,7 @@ public class User {
     private double defaultIncome;
     //private Month month;
     
-  	public User() {
+  	public Payer() {
     }
 
     public void setId(long id) {

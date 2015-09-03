@@ -10,14 +10,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 
-@Entity(name="USER_MONTHS")
-public class UserMonth {
+@Entity(name="PAYER_MONTHLY_EARNINGS")
+public class PayerMonthlyEarning {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 	
 	@ManyToOne
-	private User user;
+	private Payer payer;
 
 	@OneToMany
 	private List<FixedExpense> actualFixedExpenses;
@@ -33,12 +33,12 @@ public class UserMonth {
 		this.id = id;
 	}
 
-	public User getUser() {
-		return user;
+	public Payer getPayer() {
+		return payer;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setPayer(Payer payer) {
+		this.payer = payer;
 	}
 
 	public List<FixedExpense> getActualFixedExpenses() {
