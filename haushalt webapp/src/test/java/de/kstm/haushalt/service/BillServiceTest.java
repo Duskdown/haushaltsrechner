@@ -13,6 +13,7 @@ import org.junit.Test;
 
 import de.kstm.haushalt.model.Bill;
 import de.kstm.haushalt.repository.BillRepository;
+import de.kstm.haushalt.service.impl.BillServiceImpl;
 
 public class BillServiceTest {
 

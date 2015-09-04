@@ -1,9 +1,10 @@
-package de.kstm.haushalt.service;
+package de.kstm.haushalt.service.impl;
 
 import java.util.List;
 
 import de.kstm.haushalt.model.Income;
 import de.kstm.haushalt.repository.IncomeRepository;
+import de.kstm.haushalt.service.IncomeService;
 
 public class IncomeServiceImpl implements IncomeService {
 	

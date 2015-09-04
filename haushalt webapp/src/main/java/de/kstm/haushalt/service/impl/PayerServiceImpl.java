@@ -1,4 +1,4 @@
-package de.kstm.haushalt.service;
+package de.kstm.haushalt.service.impl;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import de.kstm.haushalt.model.Payer;
 import de.kstm.haushalt.repository.PayerRepository;
+import de.kstm.haushalt.service.PayerService;
 
 @Service
 public class PayerServiceImpl implements PayerService {

@@ -1,4 +1,4 @@
-package de.kstm.haushalt.service;
+package de.kstm.haushalt.service.impl;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import de.kstm.haushalt.model.Bill;
 import de.kstm.haushalt.repository.BillRepository;
+import de.kstm.haushalt.service.BillService;
 
 @Service
 public class BillServiceImpl implements BillService {
