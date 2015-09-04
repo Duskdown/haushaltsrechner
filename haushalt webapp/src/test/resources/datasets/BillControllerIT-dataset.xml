@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<PRODUCTS id="1" default_price="49.99"/>
+	<PAYERS id="1" name="Bob" default_income="2015.00" />
+</dataset>

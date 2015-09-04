@@ -4,18 +4,30 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import de.kstm.haushalt.model.Bill;
+import de.kstm.haushalt.model.ConcreteProduct;
+import de.kstm.haushalt.model.Product;
 import de.kstm.haushalt.repository.BillRepository;
 import de.kstm.haushalt.service.BillService;
+import de.kstm.haushalt.service.ProductService;
 
 @Service
+@Transactional
 public class BillServiceImpl implements BillService {
 
+	private ProductService productService;
 	private BillRepository billRepository;
 
+	@Autowired
+	public void setProductService(ProductService productService) {
+		this.productService = productService;
+	}
+	
 	@Autowired
 	public void setBillRepository(BillRepository billRepository) {
 		this.billRepository = billRepository;
@@ -45,6 +57,29 @@ public class BillServiceImpl implements BillService {
 
 	@Override
 	public Bill createOrModifyBill(Bill bill) {
+		for(ConcreteProduct concreteProduct : bill.getProducts()) {
+			if(concreteProduct.getProduct() == null) {
+				//TODO throw exception
+			} else {
+				Product baseProduct = concreteProduct.getProduct();
+				if(baseProduct.getId() < 1) { // if no id is available 
+					Product productWithSameName = productService
+							.getProductByName(baseProduct.getName());
+					if(productWithSameName == null) {
+						Product newBaseProduct = productService.createOrModifyProduct(baseProduct);
+						concreteProduct.setProduct(newBaseProduct);
+					} else {
+						concreteProduct.setProduct(productWithSameName);
+					}
+				} else {
+					Product persistedProduct = productService.getById(baseProduct.getId());
+					if(persistedProduct == null || persistedProduct.getName() != baseProduct.getName()) {
+						baseProduct.setId(0);
+						productService.createOrModifyProduct(baseProduct);
+					}
+				}
+			}
+		}
 		return billRepository.save(bill);
 	}
 

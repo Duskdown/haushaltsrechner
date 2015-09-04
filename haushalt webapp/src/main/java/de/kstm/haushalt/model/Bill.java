@@ -18,7 +18,6 @@ public class Bill {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-
 	@ManyToOne
 	private Payer payer;
 
@@ -52,12 +51,20 @@ public class Bill {
 	public void setTotalPrice(double totalPrice) {
 		this.totalPrice = totalPrice;
 	}
-	
-	public List<ConcreteProduct> getBillProducts() {
-		return this.products;
+
+	public Payer getPayer() {
+		return payer;
 	}
-	
-	public void setBillProducts(List<ConcreteProduct> products) {
+
+	public void setPayer(Payer payer) {
+		this.payer = payer;
+	}
+
+	public List<ConcreteProduct> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<ConcreteProduct> products) {
 		this.products = products;
 	}
 }

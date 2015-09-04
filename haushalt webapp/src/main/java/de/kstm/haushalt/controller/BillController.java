@@ -30,7 +30,7 @@ public class BillController {
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Bill> createBill(@RequestBody Bill bill, @PathVariable long payerId) {
 		Bill newBill = billService.createOrModifyBill(bill);
-		return ControllerHelper.getNewlyCreatedRequestEntity(newBill, "{payerId}/bill/{billId}", payerId, newBill.getId());
+		return ControllerHelper.getNewlyCreatedRequestEntity(newBill, "/{billId}", payerId, newBill.getId());
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)

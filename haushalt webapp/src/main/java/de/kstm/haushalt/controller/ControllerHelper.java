@@ -12,7 +12,7 @@ public class ControllerHelper {
 		HttpHeaders httpHeaders = null;
 		try {
 			URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-					.path(pathVariable).buildAndExpand(pathVariable).toUri();
+					.path(pathVariable).buildAndExpand(pathValues).toUri();
 			httpHeaders = new HttpHeaders();
 			httpHeaders.setLocation(location);
 		} catch (IllegalStateException e) {

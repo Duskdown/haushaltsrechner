@@ -14,6 +14,10 @@ public class ConcreteProduct {
 	
 	@ManyToOne
 	private Product product;
+	
+	@ManyToOne
+	private Bill bill;
+	
 	private double concretePrice;
 	
 	public ConcreteProduct() {

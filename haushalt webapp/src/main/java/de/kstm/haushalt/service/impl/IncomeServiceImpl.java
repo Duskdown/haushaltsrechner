@@ -15,7 +15,7 @@ public class IncomeServiceImpl implements IncomeService {
 	}
 
 	@Override
-	public Income createOrUpdateIncome(Income income) {
+	public Income createOrModifyIncome(Income income) {
 		return incomeRepository.save(income);
 	}
 

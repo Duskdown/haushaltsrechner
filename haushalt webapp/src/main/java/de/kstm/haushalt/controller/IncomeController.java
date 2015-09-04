@@ -21,7 +21,7 @@ public class IncomeController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Income> createIncome(@RequestBody Income income, @PathVariable long payerId) {
-		Income newIncome = incomeService.createOrUpdateIncome(income);
+		Income newIncome = incomeService.createOrModifyIncome(income);
 		return ControllerHelper.getNewlyCreatedRequestEntity(income,
 				"{year}/{month}", payerId, 
 				newIncome.getYear(), newIncome.getMonth());
@@ -30,6 +30,6 @@ public class IncomeController {
 	@RequestMapping(value="{year}/{month}", method = RequestMethod.PUT)
 	public Income updateIncome(@RequestBody Income income, @PathVariable long payerId,
 			@PathVariable int year, @PathVariable int month) {
-		return incomeService.createOrUpdateIncome(income);
+		return incomeService.createOrModifyIncome(income);
 	}
 }
