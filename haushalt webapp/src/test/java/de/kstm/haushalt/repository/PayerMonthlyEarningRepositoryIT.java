@@ -32,15 +32,15 @@ import de.kstm.haushalt.model.PayerMonthlyEarning;
 @DatabaseTearDown(type = DatabaseOperation.DELETE_ALL, value = { PayerMonthlyEarningRepositoryIT.DATASET })
 @DirtiesContext
 public class PayerMonthlyEarningRepositoryIT {
-	protected static final String DATASET = "classpath:datasets/UserMonthRepositoryIT-dataset.xml";
+	protected static final String DATASET = "classpath:datasets/PayerMonthlyEarningRepositoryIT-dataset.xml";
 
 	@Autowired
-	PayerMonthlyEarningRepository userMonthRepository;
+	PayerMonthlyEarningRepository payerMonthlyEarningRepository;
 
 	@Test
-	public void findAllUserMonthsForSpecificMonth() {
+	public void findAllPayerEarningsForSpecificMonth() {
 		// act
-		List<PayerMonthlyEarning> result = userMonthRepository.findAllByYearAndMonthAndUserId(2015, 1, 1);
+		List<PayerMonthlyEarning> result = payerMonthlyEarningRepository.findAllByYearAndMonthAndPayerId(2015, 1, 1);
 		
 		// assert
 		Assert.assertEquals(3, result.size());
@@ -51,9 +51,9 @@ public class PayerMonthlyEarningRepositoryIT {
 	
 
 	@Test
-	public void findAllUserMonthsForSpecificYear() {
+	public void findAllPayerEarningsForSpecificYear() {
 		// act
-		List<PayerMonthlyEarning> result = userMonthRepository.findAllByYearAndUserId(2016, 2);
+		List<PayerMonthlyEarning> result = payerMonthlyEarningRepository.findAllByYearAndPayerId(2016, 2);
 		
 		// assert
 		Assert.assertEquals(2, result.size());

@@ -3,8 +3,6 @@ package de.kstm.haushalt.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,22 +20,19 @@ public class PayerController {
 	private PayerService payerService;
 
 	@Autowired
-	public void setUserService(PayerService payerService) {
+	public void setPayerService(PayerService payerService) {
 		this.payerService = payerService;
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
-	public @ResponseBody List<Payer> getUsers() {
+	public @ResponseBody List<Payer> getPayers() {
 		return payerService.getAllPayers();
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Payer> add(@RequestBody Payer user) {
-		Payer newUser = payerService.createOrModifyPayer(user);
-		HttpHeaders httpHeaders = ControllerHelper.buildHttpHeaderForNewResource("{id}", newUser.getId());
-
-		return new ResponseEntity<Payer>(newUser, httpHeaders,
-				HttpStatus.CREATED);
+	public ResponseEntity<Payer> add(@RequestBody Payer payer) {
+		Payer newPayer = payerService.createOrModifyPayer(payer);
+		return ControllerHelper.getNewlyCreatedRequestEntity(newPayer, "{id}", newPayer.getId());
 	}
 	
 	@RequestMapping(value="/{id}", method = RequestMethod.DELETE)
@@ -46,12 +41,12 @@ public class PayerController {
 	}
 
 	@RequestMapping(value="/{id}", method = RequestMethod.PUT)
-	public void update(@PathVariable long id, @RequestBody Payer user) {
-		payerService.createOrModifyPayer(user);
+	public void update(@PathVariable long id, @RequestBody Payer payer) {
+		payerService.createOrModifyPayer(payer);
 	}
 	
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
-	public void getUser(@PathVariable long id) {
+	public void getPayer(@PathVariable long id) {
 		payerService.getPayer(id);
 	}
 }
