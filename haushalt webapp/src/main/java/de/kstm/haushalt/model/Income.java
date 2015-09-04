@@ -10,8 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 
-@Entity(name="PAYER_MONTHLY_EARNINGS")
-public class PayerMonthlyEarning {
+@Entity(name="INCOMES")
+public class Income {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

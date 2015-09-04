@@ -20,7 +20,7 @@ import com.github.springtestdbunit.annotation.DatabaseTearDown;
 import com.github.springtestdbunit.annotation.DatabaseOperation;
 
 import de.kstm.haushalt.Application;
-import de.kstm.haushalt.model.PayerMonthlyEarning;
+import de.kstm.haushalt.model.Income;
 
 @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class,
 		DirtiesContextTestExecutionListener.class,
@@ -35,12 +35,12 @@ public class PayerMonthlyEarningRepositoryIT {
 	protected static final String DATASET = "classpath:datasets/PayerMonthlyEarningRepositoryIT-dataset.xml";
 
 	@Autowired
-	PayerMonthlyEarningRepository payerMonthlyEarningRepository;
+	IncomeRepository payerMonthlyEarningRepository;
 
 	@Test
 	public void findAllPayerEarningsForSpecificMonth() {
 		// act
-		PayerMonthlyEarning result = payerMonthlyEarningRepository.findOneByYearAndMonthAndPayerId(2015, 2, 1);
+		Income result = payerMonthlyEarningRepository.findOneByYearAndMonthAndPayerId(2015, 2, 1);
 		
 		// assert
 		Assert.assertEquals(2, result.getId());
@@ -50,7 +50,7 @@ public class PayerMonthlyEarningRepositoryIT {
 	@Test
 	public void findAllPayerEarningsForSpecificYear() {
 		// act
-		List<PayerMonthlyEarning> result = payerMonthlyEarningRepository.findAllByYearAndPayerId(2016, 2);
+		List<Income> result = payerMonthlyEarningRepository.findAllByYearAndPayerId(2016, 2);
 		
 		// assert
 		Assert.assertEquals(2, result.size());
@@ -61,7 +61,7 @@ public class PayerMonthlyEarningRepositoryIT {
 	@Test
 	public void findAllPayerEarnings() {
 		// act
-		List<PayerMonthlyEarning> result = payerMonthlyEarningRepository.findAllByPayerId(1l);
+		List<Income> result = payerMonthlyEarningRepository.findAllByPayerId(1l);
 				
 		// assert
 		Assert.assertEquals(5, result.size());
