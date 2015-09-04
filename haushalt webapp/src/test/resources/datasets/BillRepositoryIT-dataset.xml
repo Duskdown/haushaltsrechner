@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<PAYERS id="1" name="Bob" default_income="2015.00" />
+	<PAYERS id="2" name="Alice" default_income="2015.00" />
+	
+	<BILLS id="1" payer_id="1" bill_date="2015-03-01" total_price="1.00" />
+	<BILLS id="2" payer_id="1" bill_date="2015-03-02" total_price="1.00" />
+	<BILLS id="3" payer_id="1" bill_date="2015-04-01" total_price="1.00" />
+	<BILLS id="4" payer_id="1" bill_date="2015-03-01" total_price="1.00" />
+	<BILLS id="5" payer_id="1" bill_date="2016-03-01" total_price="1.00" />
+	
+	<BILLS id="6" payer_id="2" bill_date="2015-03-01" total_price="1.00" />
+	<BILLS id="7" payer_id="2" bill_date="2016-03-01" total_price="1.00" />
+	<BILLS id="8" payer_id="2" bill_date="2016-03-02" total_price="1.00" />
+	<BILLS id="9" payer_id="2" bill_date="2016-03-05" total_price="1.00" />
+	<BILLS id="10" payer_id="2" bill_date="2016-03-07" total_price="1.00" />
+	<BILLS id="11" payer_id="2" bill_date="2016-03-11" total_price="1.00" />
+	<BILLS id="12" payer_id="2" bill_date="2016-12-31" total_price="1.00" />
+	<BILLS id="13" payer_id="2" bill_date="2017-12-01" total_price="1.00" />
+</dataset>

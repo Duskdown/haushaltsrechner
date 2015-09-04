@@ -1,0 +1,6 @@
+/haushalt webapp/target
+/haushalt webapp/.project
+/haushalt webapp/.classpath
+/haushalt webapp/.settings/
+.metadata
+RemoteSystemsTempFiles

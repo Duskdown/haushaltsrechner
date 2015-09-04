@@ -40,13 +40,10 @@ public class PayerMonthlyEarningRepositoryIT {
 	@Test
 	public void findAllPayerEarningsForSpecificMonth() {
 		// act
-		List<PayerMonthlyEarning> result = payerMonthlyEarningRepository.findAllByYearAndMonthAndPayerId(2015, 1, 1);
+		PayerMonthlyEarning result = payerMonthlyEarningRepository.findOneByYearAndMonthAndPayerId(2015, 2, 1);
 		
 		// assert
-		Assert.assertEquals(3, result.size());
-		Assert.assertEquals(1, result.get(0).getId());
-		Assert.assertEquals(2, result.get(1).getId());
-		Assert.assertEquals(3, result.get(2).getId());
+		Assert.assertEquals(2, result.getId());
 	}
 	
 
@@ -59,5 +56,19 @@ public class PayerMonthlyEarningRepositoryIT {
 		Assert.assertEquals(2, result.size());
 		Assert.assertEquals(8, result.get(0).getId());
 		Assert.assertEquals(9, result.get(1).getId());
+	}
+	
+	@Test
+	public void findAllPayerEarnings() {
+		// act
+		List<PayerMonthlyEarning> result = payerMonthlyEarningRepository.findAllByPayerId(1l);
+				
+		// assert
+		Assert.assertEquals(5, result.size());
+		Assert.assertEquals(1, result.get(0).getId());
+		Assert.assertEquals(2, result.get(1).getId());
+		Assert.assertEquals(3, result.get(2).getId());
+		Assert.assertEquals(4, result.get(3).getId());
+		Assert.assertEquals(5, result.get(4).getId());
 	}
 }

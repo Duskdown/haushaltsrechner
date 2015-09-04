@@ -4,8 +4,8 @@
 	<PAYERS id="2" name="Alice" default_income="2015.00" />
 	
 	<PAYER_MONTHLY_EARNINGS id="1" payer_id="1" year="2015" month="1" actual_income="2015.01" />
-	<PAYER_MONTHLY_EARNINGS id="2" payer_id="1" year="2015" month="1" actual_income="2015.01" />
-	<PAYER_MONTHLY_EARNINGS id="3" payer_id="1" year="2015" month="1" actual_income="2015.01" />
+	<PAYER_MONTHLY_EARNINGS id="2" payer_id="1" year="2015" month="2" actual_income="2015.01" />
+	<PAYER_MONTHLY_EARNINGS id="3" payer_id="1" year="2015" month="3" actual_income="2015.01" />
 	<PAYER_MONTHLY_EARNINGS id="4" payer_id="1" year="2016" month="1" actual_income="2016.01" />
 	<PAYER_MONTHLY_EARNINGS id="5" payer_id="1" year="2016" month="2" actual_income="2016.02" />
 	
